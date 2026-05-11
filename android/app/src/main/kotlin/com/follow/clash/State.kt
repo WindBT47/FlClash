@@ -87,7 +87,6 @@ object State {
             if (flutterEngine != null) {
                 return
             }
-            GlobalState.application.showToast(sharedState.stopTip)
             handleStopService()
         }
     }
@@ -130,7 +129,6 @@ object State {
     private suspend fun setupAndStart() {
         Service.bind()
         syncState()
-        GlobalState.application.showToast(sharedState.startTip)
         val initParams = mutableMapOf<String, Any>()
         initParams["home-dir"] = GlobalState.application.filesDir.path
         initParams["version"] = android.os.Build.VERSION.SDK_INT
